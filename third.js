@@ -44,6 +44,25 @@ var thirdProblem = function() {
       }
       console.log(obj);
 
+      var arr = [];
+      for (var i in obj) {
+        var obj1 = {};
+        obj1["name"] = i;
+        obj1["y"] = obj[i];
+        arr.push(obj1);
+      }
+      console.log(arr);
+      require("fs").writeFile(
+        "./jsonFiles/runsPerTeam.json",
+        JSON.stringify(arr, null, 4),
+        err => {
+          if (err) {
+            console.log(err);
+            return;
+          }
+        }
+      );
+
       //-Same output as above
       //
       // var targetObj = {};

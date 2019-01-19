@@ -72,6 +72,25 @@ var fourthProblem = function() {
         topTen[toSort[i][0]] = toSort[i][1];
       }
       console.log(topTen);
+
+      var arr = [];
+      for (var i in topTen) {
+        var obj1 = {};
+        obj1["name"] = i;
+        obj1["y"] = topTen[i];
+        arr.push(obj1);
+      }
+      console.log(arr);
+      require("fs").writeFile(
+        "./jsonFiles/economicalBowlers.json",
+        JSON.stringify(arr, null, 4),
+        err => {
+          if (err) {
+            console.log(err);
+            return;
+          }
+        }
+      );
     });
 };
 

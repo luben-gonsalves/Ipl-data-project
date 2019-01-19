@@ -13,7 +13,7 @@ function getFiles(path) {
 
 function plot() {
   var matchData = getFiles(
-    "file:///C:/Users/Luben/Desktop/DataProject/jsonFiles/matchesWonPerYear.json"
+    "file:///C:/Users/Luben/Desktop/DataProject/jsonFiles/economicalBowlers.json"
   );
   // Create the chart
   Highcharts.chart("container", {
