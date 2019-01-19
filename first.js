@@ -1,8 +1,4 @@
 var csv = require("fast-csv");
-var Chartkick = require("chartkick");
-var Chart = require("chart.js");
-
-Chartkick.addAdapter(Chart);
 
 //1st problem
 var firstProblem = function() {
@@ -25,11 +21,26 @@ var firstProblem = function() {
         .forEach(function(i) {
           count[i] = (count[i] || 0) + 1;
         });
-      console.log(count);
+      // console.log(count);
+      var arr = [];
+      for (var i in count) {
+        var obj = {};
+        obj["name"] = i;
+        obj["y"] = count[i];
+        arr.push(obj);
+      }
+      console.log(arr);
+      require("fs").writeFile(
+        "./jsonFiles/matchesWonPerYear.json",
+        JSON.stringify(arr, null, 4),
+        err => {
+          if (err) {
+            console.log(err);
+            return;
+          }
+        }
+      );
     });
 };
-
-<div id="chart-1" style="height: 300px;" />
-new Chartkick.BarChart("chart-1", [["Work", 32], ["Play", 1492]]);
 
 firstProblem();

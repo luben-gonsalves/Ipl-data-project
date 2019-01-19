@@ -15,6 +15,8 @@ var secondProblem = function() {
     })
     .on("end", () => {
       var TotalCount = {};
+
+      //find total win count of all teams in each year
       for (var i in matchesData) {
         if (matchesData[i]["winner"] !== "") {
           if (TotalCount.hasOwnProperty(matchesData[i]["winner"])) {
@@ -29,38 +31,6 @@ var secondProblem = function() {
         }
       }
       console.log(TotalCount);
-      // let obj = matchesData.reduce(function(output, current) {
-      //   if (output.hasOwnProperty(current.winner)) {
-      //     if (output[current.winner].hasOwnProperty(current.season))
-      //       output[current.winner][current.season] =
-      //         output[current.winner][current.season] + 1;
-      //     else output[current.winner][current.season] = 1;
-      //   } else {
-      //     output[current.winner] = {};
-      //     output[current.winner][current.season] = 1;
-      //   }
-      // }, {});
-
-      // console.log(obj);
-      // var obj1;
-      // var obj = {
-      //   2008: {},
-      //   2009: {},
-      //   2010: {},
-      //   2011: {},
-      //   2012: {},
-      //   2013: {},
-      //   2014: {},
-      //   2015: {},
-      //   2016: {},
-      //   2017: {}
-      // };
-
-      // console.log(obj1);
-
-      //   for (var i in matchesData) {
-      //     obj[matchesData[i]["season"]]=(obj[filteredDeliveries[delivery]["bowling_team"]] || 0) +1
-      // }
     });
 };
 

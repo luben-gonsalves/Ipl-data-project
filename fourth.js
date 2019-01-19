@@ -57,14 +57,17 @@ var fourthProblem = function() {
         totalRuns[i] = totalRuns[i] / (totalBalls[i] / 6);
       }
 
+      //get top ten teams
       var topTen = {};
       var toSort = [];
       for (var i in totalRuns) {
         toSort.push([i, totalRuns[i]]);
       }
+
       toSort.sort(function(a, b) {
         return a[1] - b[1];
       });
+
       for (var i = 0; i < 10; i++) {
         topTen[toSort[i][0]] = toSort[i][1];
       }
